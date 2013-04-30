@@ -5,7 +5,7 @@
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
 	<meta name="viewport" content="width=device-width, initial-scale=2.0"/>
       <script type="text/javascript" charset="utf-8" src="cordova-2.1.0.js"></script>
-      <link href="css/bootstrap.min.css" rel="stylesheet" />
+   
     <title>Service Wireless Log On</title>
 
    <link href="css/index.css" rel="stylesheet" />
@@ -61,12 +61,12 @@
   </head>
   
   <body onload="setFocus();" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">  
-      <div class="container-fluid">
+     
   	<form name="frmLogOn" method="post" action="http://myoce.oceusa.com/wirelessapps/service/WSA_SSOLogOn.asp">
   	<table>
   		<tr>
   			 <td align=left>
-				
+				Service Calls
 			</td>
   		</tr>
 	</table>
@@ -74,10 +74,10 @@
 	  	<tr>
 	  		<td style="font: 10pt arial,helvetica">
 				User ID:<BR>
-				<input name="UserID" id="UserID" type="email" size="25" style="font: 10pt arial,helvetica" value="">
+				<input name="UserID" id="UserID" type="email" size="25" style="font: 10pt arial,helvetica" value="andre.ferreira@oce.com">
 				<br><br>
 				Password:<BR>
-				<input name="Password" id="Password" type="password" size="25" style="font: 10pt arial,helvetica" value="">
+				<input name="Password" id="Password" type="password" size="25" style="font: 10pt arial,helvetica" value="5bit2032-y">
 				<br><br>
 				<input type="button" value="LogOn" id="idLogOn" name="LogOn" OnClick="javascript: validate();" >
 				<div>
@@ -87,7 +87,7 @@
 	  	</tr>
 	</table>
           </form>
-          </div>
+         
   </body>
 
 
