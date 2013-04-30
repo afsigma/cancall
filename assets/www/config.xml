@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
-        id        = "com.phillysct.app"
-        version   = "1.1">
-  <name>Phillysct</name>
+        id        = "com.cancall.app"
+        version   = "1.0">
+  <name>Cancall</name>
 
   <description>
-    Phillysct
+    Cancall
   </description>
 
   <author href="http://afsigma.com" email="andre@afsigma.com">
