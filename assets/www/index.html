@@ -1,29 +1,96 @@
-﻿<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <title></title>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <script type="text/javascript" charset="utf-8" src="cordova-2.6.0.js"></script>
-    <script type="text/javascript" charset="utf-8">
+﻿
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+	<meta name="viewport" content="width=device-width, initial-scale=2.0"/>
+      <script type="text/javascript" charset="utf-8" src="cordova-2.1.0.js"></script>
+      <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <title>Service Wireless Log On</title>
 
-        // Wait for Cordova to load
-        //
-        document.addEventListener("deviceready", onDeviceReady, false);
+   <link href="css/index.css" rel="stylesheet" />
+   <script src="js/jQuery.js"></script>
 
-        // Cordova is ready
-        //
-        function onDeviceReady() {
-            var ref = window.open('http://apache.org', '_blank', 'location=yes');
-            ref.addEventListener('loadstart', function (event) { alert('start: ' + event.url); });
-            ref.addEventListener('loadstop', function (event) { alert('stop: ' + event.url); });
-            ref.addEventListener('loaderror', function (event) { alert('error: ' + event.message); });
-            ref.addEventListener('exit', function (event) { alert(event.type); });
-        }
 
-    </script>
+    <script src="jquery.mobile-1.2.0/jquery.mobile-1.2.0.min.js"></script>
 
-</head>
-<body>
+	<script type="text/javascript">
+	    function setFocus() {
+	        if ("" != "") {
+	            if (navigator.appName == "Blazer")	// Old Palm browser
+	            {
+	                alert("");
+	            }
+	            else {
+	                document.getElementById("messageText").innerHTML = "";
+	            }
+	        }
+	        document.getElementById("UserID").focus();
+	    }
 
-</body>
+	    function validate() {
+	        document.getElementById("messageText").innerHTML = "";
+	        var vMessage = ""
+	        var x = document.getElementById("UserID").value;
+	        var atpos = x.indexOf("@");
+	        var dotpos = x.lastIndexOf(".");
+	        if (x == null || x == "") {
+	            document.getElementById("UserID").focus();
+	            return false;
+	        }
+	        if (atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= x.length) {
+	            vMessage = "You entered an invalid User ID or Password.";
+	            if (navigator.appName == "Blazer")	// Old Palm browser
+	            {
+	                alert(vMessage);
+	            }
+	            else {
+	                document.getElementById("messageText").innerHTML = vMessage;
+	            }
+	            document.getElementById("UserID").focus();
+	            return false;
+	        }
+	        if (document.getElementById("Password").value == null || document.getElementById("Password").value == "") {
+	            document.getElementById("Password").focus();
+	            return false;
+	        }
+
+	        document.frmLogOn.submit();
+	    }
+	</Script>
+  </head>
+  
+  <body onload="setFocus();" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">  
+      <div class="container-fluid">
+  	<form name="frmLogOn" method="post" action="http://myoce.oceusa.com/wirelessapps/service/WSA_SSOLogOn.asp">
+  	<table>
+  		<tr>
+  			 <td align=left>
+				
+			</td>
+  		</tr>
+	</table>
+	<table>
+	  	<tr>
+	  		<td style="font: 10pt arial,helvetica">
+				User ID:<BR>
+				<input name="UserID" id="UserID" type="email" size="25" style="font: 10pt arial,helvetica" value="">
+				<br><br>
+				Password:<BR>
+				<input name="Password" id="Password" type="password" size="25" style="font: 10pt arial,helvetica" value="">
+				<br><br>
+				<input type="button" value="LogOn" id="idLogOn" name="LogOn" OnClick="javascript: validate();" >
+				<div>
+					<span id="messageText" style="font:10pt arial,helvetica;border:none;color:red"></span>
+				</div>
+			</td>
+	  	</tr>
+	</table>
+          </form>
+          </div>
+  </body>
+
+
+
+
 </html>
