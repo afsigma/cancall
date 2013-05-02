@@ -2,3 +2,31 @@ body {
     width:300px;
     margin:10px;
 }
+
+
+input[type="email"] {
+    width:200px;
+    height:20px;
+    font-size:14px;
+    font-weight:bold
+
+}
+
+input[type="password"] {
+    width:200px;
+    height:20px;
+    font-size:14px;
+    font-weight:bold;
+ 
+
+}
+
+
+input[type="button"] {
+    width:auto;
+    height:40px;
+    font-size:14px;
+    font-weight:bold;
+    color: #FF3300
+
+}
