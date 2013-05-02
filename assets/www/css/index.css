@@ -1,4 +1,6 @@
-
+input[type="email"]{
+    width:25px;
+}
 
 
 #page-home, #page-cheese-steak, #page-philly-hoagie, #page-fries, #page-snacks

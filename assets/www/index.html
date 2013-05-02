@@ -7,12 +7,52 @@
       <script type="text/javascript" charset="utf-8" src="cordova-2.1.0.js"></script>
    
     <title>Service Wireless Log On</title>
-
+      <link href="css/bootstrap.min.css" rel="stylesheet" />
   
-   <script src="js/jQuery.js"></script>
+ 
+
+    <script type="text/javascript" charset="utf-8">
+
+       
 
 
-    <script src="jquery.mobile-1.2.0/jquery.mobile-1.2.0.min.js"></script>
+        // Wait for Cordova to load
+        //
+        document.addEventListener("deviceready", onDeviceReady, false);
+
+        // Cordova is ready
+        //
+
+        function onDeviceReady() {
+            
+            document.getElementById("Password").value = window.localStorage.getItem("key1");
+            document.getElementById("UserID").value = window.localStorage.getItem("key2");
+
+
+        }
+
+
+
+
+        function store() {
+
+            window.localStorage.setItem("key1", document.getElementById("Password").value);
+            window.localStorage.setItem("key2", document.getElementById("UserID").value);
+
+            document.getElementById("Password").value = window.localStorage.getItem("key1");
+            document.getElementById("UserID").value = window.localStorage.getItem("key2");
+
+
+            
+
+
+
+        }
+
+
+    </script>
+
+
 
 	<script type="text/javascript">
 	    function setFocus() {
@@ -66,7 +106,8 @@
   	<table>
   		<tr>
   			 <td align=left>
-				Service Calls
+                   <br>
+				<p>Service Calls</p>
 			</td>
   		</tr>
 	</table>
@@ -74,12 +115,16 @@
 	  	<tr>
 	  		<td style="font: 10pt arial,helvetica">
 				User ID:<BR>
-				<input name="UserID" id="UserID" type="email" size="25" style="font: 10pt arial,helvetica" value="andre.ferreira@oce.com">
+				<input name="UserID" id="UserID" type="email" size="25" style="font: 10pt arial,helvetica" value="">
 				<br><br>
 				Password:<BR>
 				<input name="Password" id="Password" type="password" size="25" style="font: 10pt arial,helvetica" value="">
 				<br><br>
+
+                <input type="button" value="Store Password" id="Store Password" name="Store Password" OnClick="javascript: store();" >
 				<input type="button" value="LogOn" id="idLogOn" name="LogOn" OnClick="javascript: validate();" >
+
+                
 				<div>
 					<span id="messageText" style="font:10pt arial,helvetica;border:none;color:red"></span>
 				</div>
@@ -87,6 +132,8 @@
 	  	</tr>
 	</table>
           </form>
+
+     
          
   </body>
 
